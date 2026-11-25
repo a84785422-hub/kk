@@ -1,0 +1,14 @@
+# Kling Clone v3.0 - Python Implementation
+
+Un clone complet et fonctionnel du modèle Kling 3.0 en Python.
+
+## Features
+- Génération de vidéos à partir de prompts textuels
+- Support des prompts négatifs
+- Téléchargement automatique des résultats
+- Interface async IO pour de meilleures performances
+- Gestion d'erreurs robuste
+
+## Installation
+```bash
+pip install -r requirements.txt

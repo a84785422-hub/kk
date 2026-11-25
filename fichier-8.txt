@@ -1,0 +1,7 @@
+kling-clone/
+├── kling_clone.py        # Code principal
+├── requirements.txt      # Dépendances
+├── .env                # Clés API (gitignoré)
+├── .gitignore          # Fichiers à ignorer
+├── README.md           # Documentation
+└── workflow.yml        # CI/CD GitHub Actions

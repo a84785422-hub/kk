@@ -1,0 +1,2 @@
+KLING_API_KEY=votre_cle_api_ici
+KLING_API_BASE=https://api.kling.ai/v1

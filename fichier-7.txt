@@ -1,0 +1,46 @@
+
+**Fichier : `workflow.yml`** (GitHub Actions)
+```yaml
+name: Kling Clone CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --select=E9,F6,F7,W5 --show-source --statistics
+          
+      - name: Test with pytest
+        run: |
+          pytest --tb=short
+          
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy to production
+        run: |
+          echo "Déploiement vers la production"
+          # Ajoute ton script de déploiement ici
